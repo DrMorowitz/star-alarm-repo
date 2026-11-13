@@ -1,0 +1,55 @@
+<!-- SECTION: cotizar -->
+<section class="cot osc" id="cotizar">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Cotización gratis</p>
+      <h2 class="rv">Cuéntanos qué quieres proteger.</h2>
+      <p class="lead">Elige qué quieres proteger y te abrimos WhatsApp con el mensaje listo. Te respondemos para coordinar la visita.</p>
+      <ul class="contacto-lista">
+        <li><span>WhatsApp</span><a href="{{WA}}" data-wa>6678-5785</a></li>
+        <li><span>Oficina</span><a href="tel:+5072636380">263-6380</a></li>
+        <li><span>Correo</span><a href="mailto:ventas@staralarmpanama.com">ventas@staralarmpanama.com</a></li>
+        <li><span>Horario</span>Lun a vie 8:00–5:00 · Sáb 8:00–12:00</li>
+      </ul>
+    </div>
+    <form class="armador rv" id="armador" onsubmit="return false">
+      <fieldset>
+        <legend>¿Qué quieres proteger?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="lugar" value="mi casa" checked><span>Casa</span></label>
+          <label class="chip"><input type="radio" name="lugar" value="mi apartamento"><span>Apartamento</span></label>
+          <label class="chip"><input type="radio" name="lugar" value="mi negocio"><span>Negocio</span></label>
+          <label class="chip"><input type="radio" name="lugar" value="mi oficina"><span>Oficina</span></label>
+          <label class="chip"><input type="radio" name="lugar" value="un edificio / PH"><span>Edificio o PH</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>¿Qué te interesa?</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="nec" value="alarma" checked><span>Alarma</span></label>
+          <label class="chip"><input type="checkbox" name="nec" value="cámaras"><span>Cámaras</span></label>
+          <label class="chip"><input type="checkbox" name="nec" value="monitoreo 24/7"><span>Monitoreo 24/7</span></label>
+          <label class="chip"><input type="checkbox" name="nec" value="alarma contra incendio"><span>Incendio</span></label>
+          <label class="chip"><input type="checkbox" name="nec" value="control de acceso"><span>Control de acceso</span></label>
+        </div>
+      </fieldset>
+      <p class="armador__prev" aria-live="polite" id="armador-prev"></p>
+      <a class="btn btn--prim" id="armador-btn" href="{{WA}}" target="_blank" rel="noopener">{{ICO_WA}}Enviar por WhatsApp</a>
+    </form>
+  </div>
+</section>
+<script>
+(function(){
+  var f=document.getElementById('armador');if(!f)return;
+  var prev=document.getElementById('armador-prev'),btn=document.getElementById('armador-btn');
+  function lista(a){return a.length<2?a.join(''):a.slice(0,-1).join(', ')+' y '+a[a.length-1]}
+  function upd(){
+    var lugar=(f.querySelector('input[name=lugar]:checked')||{}).value||'mi casa';
+    var nec=[].map.call(f.querySelectorAll('input[name=nec]:checked'),function(i){return i.value});
+    var txt='Hola Star Alarm, quiero cotizar '+(nec.length?lista(nec):'un sistema de seguridad')+' para '+lugar+'. ¿Me ayudan a coordinar la visita?';
+    prev.innerHTML='<b>Tu mensaje:</b> '+txt;
+    btn.href='https://wa.me/50766785785?text='+encodeURIComponent(txt);
+  }
+  f.addEventListener('change',upd);upd();
+})();
+</script>

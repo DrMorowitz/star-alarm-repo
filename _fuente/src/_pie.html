@@ -1,0 +1,50 @@
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie__grid">
+      <div>
+        <img src="https://static.wixstatic.com/media/1a1226_b15ee02ab9de43acbd4866c2487d1fb2~mv2.png/v1/fill/w_320,h_87,al_c,q_90/star-alarm-logo.png" alt="Star Alarm" width="118" height="32" loading="lazy">
+        <p>Alarmas, cámaras, monitoreo 24/7 y control de acceso en Panamá. Empresa 100% panameña, desde 2001.</p>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="/servicios#robo">Alarma contra robo</a></li>
+          <li><a href="/servicios#camaras">Cámaras y video analytics</a></li>
+          <li><a href="/servicios#monitoreo">Monitoreo 24/7</a></li>
+          <li><a href="/servicios#incendio">Alarma contra incendio</a></li>
+          <li><a href="/servicios#acceso">Control de acceso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="{{WA}}" data-wa>WhatsApp 6678-5785</a></li>
+          <li><a href="tel:+5072636380">Oficina 263-6380</a></li>
+          <li><a href="mailto:ventas@staralarmpanama.com">ventas@staralarmpanama.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <ul>
+          <li>Lun a vie · 8:00 a. m. – 5:00 p. m.</li>
+          <li>Sábado · 8:00 a. m. – 12:00 m.</li>
+          <li>Monitoreo · 24/7</li>
+          <li><a href="https://www.instagram.com/star_alarm/" rel="noopener" target="_blank">Instagram</a> · <a href="https://www.facebook.com/STARALARMPANAMA" rel="noopener" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie__legal">
+      <span>© 2026 Star Alarm S.A. · Ciudad de Panamá</span>
+      <span>Demo preparado por New Tech Solutions</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var io='IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.rv');
+  if(!io){els.forEach(function(e){e.classList.add('in')});return}
+  var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){o.observe(e)});
+})();
+</script>

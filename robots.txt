@@ -1,0 +1,3 @@
+# DEMO: bloqueado. Al lanzar: Allow: / y Sitemap
+User-agent: *
+Disallow: /
