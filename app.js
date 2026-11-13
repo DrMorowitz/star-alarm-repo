@@ -66,7 +66,7 @@
       if (!armado()) {
         nT.textContent = 'Tu sistema está desarmado';
         nS.textContent = 'Ármalo para recibir alertas';
-        requestAnimationFrame(function () { notif.classList.add('is-on'); });
+        setTimeout(function () { notif.classList.add('is-on'); }, 20);
         timer = setTimeout(limpiar, 3200);
         return;
       }
@@ -76,7 +76,7 @@
       plano.querySelector('.zona-alerta[data-zona="' + k + '"]').classList.add('is-alerta');
       nT.textContent = INFO[k][2];
       nS.textContent = INFO[k][3] + ' · 3:02 a. m. · la central ya recibió la alerta';
-      requestAnimationFrame(function () { notif.classList.add('is-on'); });
+      setTimeout(function () { notif.classList.add('is-on'); }, 20);
       timer = setTimeout(limpiar, 5200);
     });
   }
