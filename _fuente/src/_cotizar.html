@@ -33,7 +33,8 @@
           <label class="chip"><input type="checkbox" name="nec" value="control de acceso"><span>Control de acceso</span></label>
         </div>
       </fieldset>
-      <p class="armador__prev" aria-live="polite" id="armador-prev"></p>
+      <div class="reco" aria-live="polite"><p class="reco__t">Recomendado para <b data-reco-lugar>tu casa</b></p><p class="reco__d" data-reco-d></p></div>
+      <p class="armador__prev" id="armador-prev"></p>
       <a class="btn btn--prim" id="armador-btn" href="{{WA}}" target="_blank" rel="noopener">{{ICO_WA}}Enviar por WhatsApp</a>
     </form>
   </div>
@@ -50,6 +51,15 @@
     prev.innerHTML='<b>Tu mensaje:</b> '+txt;
     btn.href='https://wa.me/50766785785?text='+encodeURIComponent(txt);
   }
-  f.addEventListener('change',upd);upd();
+  var R={'mi casa':[['alarma','monitoreo 24/7'],'Alarma con sensores en puertas y ventanas, monitoreo 24/7 y la app en tu celular.'],
+   'mi apartamento':[['alarma','monitoreo 24/7'],'Alarma inalámbrica, sin obra, con alertas en tu celular y monitoreo 24/7.'],
+   'mi negocio':[['alarma','cámaras','monitoreo 24/7'],'Cámaras con video análisis en caja y entrada, alarma para cuando cierras y monitoreo 24/7.'],
+   'mi oficina':[['cámaras','control de acceso'],'Control de acceso con registro de asistencia y visitantes, y cámaras en accesos.'],
+   'un edificio / PH':[['cámaras','control de acceso','alarma contra incendio'],'Control de acceso para residentes y visitas, cámaras en áreas comunes y sistema contra incendio.']};
+  var recoL=f.querySelector('[data-reco-lugar]'),recoD=f.querySelector('[data-reco-d]');
+  function reco(e){var l=(f.querySelector('input[name=lugar]:checked')||{}).value;if(!R[l])return;
+    recoL.textContent=l.replace('mi ','tu ').replace('un edificio / PH','tu edificio o PH');recoD.textContent=R[l][1];
+    if(e&&e.target.name==='lugar'){f.querySelectorAll('input[name=nec]').forEach(function(i){i.checked=R[l][0].indexOf(i.value)>-1})}}
+  f.addEventListener('change',function(e){reco(e);upd()});reco();upd();
 })();
 </script>

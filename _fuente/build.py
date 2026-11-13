@@ -23,6 +23,7 @@ for page,cur in [('index','INICIO'),('servicios','SERV'),('contacto','CONT')]:
     left=re.findall(r'\{\{\w+\}\}',h); assert not left,(page,left)
     (out/f'{page}.html').write_text(h)
 (out/'styles.css').write_text((S/'styles.css').read_text())
+(out/'app.js').write_text((S/'app.js').read_text())
 (out/'vercel.json').write_text('{"cleanUrls":true,"trailingSlash":false,"headers":[{"source":"/(.*)","headers":[{"key":"X-Robots-Tag","value":"noindex"}]}]}')
 (out/'robots.txt').write_text("# DEMO: bloqueado. Al lanzar: Allow: / y Sitemap\nUser-agent: *\nDisallow: /\n")
 (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>https://www.staralarmpanama.com/{p}</loc></url>' for p in ['','servicios','contacto'])+'</urlset>\n')

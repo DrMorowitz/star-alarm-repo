@@ -42,11 +42,11 @@
     <p class="kicker">Servicios</p>
     <h1 class="rv">Cada sistema empieza por tu espacio, no por un catálogo.</h1>
     <p class="lead rv">Cada casa, local o edificio tiene puntos débiles distintos. Armamos el sistema con lo que de verdad hace falta, ni más ni menos.</p>
-    <nav class="subnav" aria-label="Servicios">
-      <a href="#robo">Alarma contra robo</a><a href="#camaras">Cámaras y video analytics</a><a href="#monitoreo">Monitoreo 24/7</a><a href="#incendio">Alarma contra incendio</a><a href="#acceso">Control de acceso</a>
-    </nav>
   </div>
 </section>
+<div class="subbar"><div class="wrap"><nav class="subnav" aria-label="Servicios" data-spy>
+      <a href="#robo">Alarma contra robo</a><a href="#camaras">Cámaras y video analytics</a><a href="#monitoreo">Monitoreo 24/7</a><a href="#incendio">Alarma contra incendio</a><a href="#acceso">Control de acceso</a>
+    </nav></div></div>
 
 <div class="wrap">
   <!-- SECTION: robo -->
@@ -180,7 +180,8 @@
           <label class="chip"><input type="checkbox" name="nec" value="control de acceso"><span>Control de acceso</span></label>
         </div>
       </fieldset>
-      <p class="armador__prev" aria-live="polite" id="armador-prev"></p>
+      <div class="reco" aria-live="polite"><p class="reco__t">Recomendado para <b data-reco-lugar>tu casa</b></p><p class="reco__d" data-reco-d></p></div>
+      <p class="armador__prev" id="armador-prev"></p>
       <a class="btn btn--prim" id="armador-btn" href="https://wa.me/50766785785?text=Hola%20Star%20Alarm%2C%20quiero%20cotizar%20un%20sistema%20de%20seguridad." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Enviar por WhatsApp</a>
     </form>
   </div>
@@ -197,7 +198,16 @@
     prev.innerHTML='<b>Tu mensaje:</b> '+txt;
     btn.href='https://wa.me/50766785785?text='+encodeURIComponent(txt);
   }
-  f.addEventListener('change',upd);upd();
+  var R={'mi casa':[['alarma','monitoreo 24/7'],'Alarma con sensores en puertas y ventanas, monitoreo 24/7 y la app en tu celular.'],
+   'mi apartamento':[['alarma','monitoreo 24/7'],'Alarma inalámbrica, sin obra, con alertas en tu celular y monitoreo 24/7.'],
+   'mi negocio':[['alarma','cámaras','monitoreo 24/7'],'Cámaras con video análisis en caja y entrada, alarma para cuando cierras y monitoreo 24/7.'],
+   'mi oficina':[['cámaras','control de acceso'],'Control de acceso con registro de asistencia y visitantes, y cámaras en accesos.'],
+   'un edificio / PH':[['cámaras','control de acceso','alarma contra incendio'],'Control de acceso para residentes y visitas, cámaras en áreas comunes y sistema contra incendio.']};
+  var recoL=f.querySelector('[data-reco-lugar]'),recoD=f.querySelector('[data-reco-d]');
+  function reco(e){var l=(f.querySelector('input[name=lugar]:checked')||{}).value;if(!R[l])return;
+    recoL.textContent=l.replace('mi ','tu ').replace('un edificio / PH','tu edificio o PH');recoD.textContent=R[l][1];
+    if(e&&e.target.name==='lugar'){f.querySelectorAll('input[name=nec]').forEach(function(i){i.checked=R[l][0].indexOf(i.value)>-1})}}
+  f.addEventListener('change',function(e){reco(e);upd()});reco();upd();
 })();
 </script>
 
@@ -251,5 +261,6 @@
 })();
 </script>
 
+<script src="/app.js" defer></script>
 </body>
 </html>

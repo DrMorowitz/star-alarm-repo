@@ -45,11 +45,11 @@
 <main>
 
 <!-- SECTION: hero -->
-<section class="hero osc" id="inicio">
+<section class="hero osc" id="inicio" data-spot>
   <div class="wrap">
     <div class="rv">
       <p class="kicker">Alarmas · Cámaras · Monitoreo 24/7</p>
-      <h1>Si algo pasa, <em>te enteras primero.</em></h1>
+      <h1 class="titulo-anim"><span>Si</span> <span>algo</span> <span>pasa,</span> <em><span>te</span> <span>enteras</span> <span>primero.</span></em></h1>
       <p class="lead">Alarmas, cámaras y monitoreo 24/7 para casas, negocios y edificios en Panamá. Te recomendamos solo lo que tu espacio necesita, y te avisamos al celular si algo pasa.</p>
       <div class="hero__acciones">
         <a class="btn btn--prim" href="https://wa.me/50766785785?text=Hola%20Star%20Alarm%2C%20quiero%20cotizar%20un%20sistema%20de%20seguridad." data-wa><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Pide tu cotización</a>
@@ -62,35 +62,56 @@
       </ul>
     </div>
 
-    <figure class="plano rv" aria-label="Ejemplo de levantamiento: plano de un apartamento con cuatro puntos de protección">
-      <div class="plano__cab"><span>Ejemplo · Apartamento tipo</span><span class="plano__estado"><i></i>Sistema armado</span></div>
-      <svg viewBox="0 0 520 330" role="img" aria-hidden="true">
-        <rect class="muro" x="10" y="10" width="380" height="250" rx="4"/>
-        <path class="muro-int" d="M190 10v110M190 165v95M10 150h120M250 150h140M250 150v-40"/>
-        <path class="muro" d="M390 60h110v200H390"/>
-        <path class="muro-int" d="M60 260v-10M110 260v-10" />
-        <text class="etq-zona" x="30" y="40">Habitación</text>
-        <text class="etq-zona" x="210" y="40">Sala · comedor</text>
-        <text class="etq-zona" x="30" y="180">Cocina</text>
-        <text class="etq-zona" x="270" y="180">Habitación</text>
-        <text class="etq-zona" x="408" y="88">Balcón</text>
-        <text class="etq-zona" x="20" y="315">Parqueo</text>
-        <path d="M10 285h240" stroke="#5A5852" stroke-width="2" stroke-dasharray="6 6"/>
-        <g class="punto"><circle class="h" cx="190" cy="142" r="12"/><circle class="n" cx="190" cy="142" r="9"/><text x="190" y="146" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="11" fill="#161616">1</text></g>
-        <g class="punto"><circle class="h" cx="300" cy="80" r="12"/><circle class="n" cx="300" cy="80" r="9"/><text x="300" y="84" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="11" fill="#161616">2</text></g>
-        <g class="punto"><circle class="h" cx="460" cy="150" r="12"/><circle class="n" cx="460" cy="150" r="9"/><text x="460" y="154" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="11" fill="#161616">3</text></g>
-        <g class="punto"><circle class="h" cx="160" cy="305" r="12"/><circle class="n" cx="160" cy="305" r="9"/><text x="160" y="309" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="11" fill="#161616">4</text></g>
-        <path d="M160 305 L235 268 M160 305 L235 330" stroke="#FBD600" stroke-opacity=".35" stroke-width="1.5"/>
-      </svg>
-      <ul class="leyenda">
-        <li><b>1</b><span><strong>Puerta principal</strong>Sensor magnético</span></li>
-        <li><b>2</b><span><strong>Sala</strong>Detector de movimiento</span></li>
-        <li><b>3</b><span><strong>Balcón</strong>Sensor de ventana o cortina</span></li>
-        <li><b>4</b><span><strong>Parqueo</strong>Cámara con alertas de actividad</span></li>
-      </ul>
+    <figure class="plano rv" data-armado="true" aria-label="Simulador: plano de un apartamento con cuatro puntos de protección">
+      <div class="plano__cab">
+        <span class="plano__tit">Tu casa, punto por punto</span>
+        <button class="switch" type="button" aria-pressed="true" data-switch><span class="switch__track"><span class="switch__knob"></span></span><span class="switch__txt" data-switch-txt>Armado</span></button>
+      </div>
+      <div class="plano__lienzo">
+        <svg viewBox="0 0 520 330" role="img" aria-hidden="true">
+          <defs><pattern id="rej" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2A2A2A" stroke-width="1"/></pattern></defs>
+          <rect x="0" y="0" width="520" height="330" fill="url(#rej)"/>
+          <rect class="zona-alerta" data-zona="sala" x="192" y="12" width="196" height="136"/>
+          <rect class="zona-alerta" data-zona="entrada" x="150" y="112" width="80" height="60"/>
+          <rect class="zona-alerta" data-zona="balcon" x="392" y="62" width="106" height="196"/>
+          <rect class="zona-alerta" data-zona="parqueo" x="10" y="288" width="300" height="40"/>
+          <rect class="muro" x="10" y="10" width="380" height="250" rx="4"/>
+          <path class="muro-int" d="M190 10v110M190 165v95M10 150h120M250 150h140M250 150v-40"/>
+          <path class="muro" d="M390 60h110v200H390"/>
+          <text class="etq-zona" x="30" y="40">Habitación</text>
+          <text class="etq-zona" x="210" y="40">Sala · comedor</text>
+          <text class="etq-zona" x="30" y="180">Cocina</text>
+          <text class="etq-zona" x="270" y="180">Habitación</text>
+          <text class="etq-zona" x="408" y="88">Balcón</text>
+          <text class="etq-zona" x="20" y="315">Parqueo</text>
+          <path d="M10 285h300" stroke="#5A5852" stroke-width="2" stroke-dasharray="6 6"/>
+          <path class="cono" d="M160 305 L250 270 L250 330 Z"/>
+          <g class="punto" data-p="entrada" tabindex="0" role="button" aria-label="Puerta principal: sensor magnético"><circle class="h" cx="190" cy="142" r="12"/><circle class="n" cx="190" cy="142" r="10"/><text x="190" y="146" text-anchor="middle">1</text></g>
+          <g class="punto" data-p="sala" tabindex="0" role="button" aria-label="Sala: detector de movimiento"><circle class="h" cx="300" cy="80" r="12"/><circle class="n" cx="300" cy="80" r="10"/><text x="300" y="84" text-anchor="middle">2</text></g>
+          <g class="punto" data-p="balcon" tabindex="0" role="button" aria-label="Balcón: sensor de ventana"><circle class="h" cx="460" cy="150" r="12"/><circle class="n" cx="460" cy="150" r="10"/><text x="460" y="154" text-anchor="middle">3</text></g>
+          <g class="punto" data-p="parqueo" tabindex="0" role="button" aria-label="Parqueo: cámara con alertas de actividad"><circle class="h" cx="160" cy="305" r="12"/><circle class="n" cx="160" cy="305" r="10"/><text x="160" y="309" text-anchor="middle">4</text></g>
+        </svg>
+        <div class="tip" data-tip hidden></div>
+      </div>
+
+      <div class="notif" data-notif aria-live="polite">
+        <div class="notif__app"><span class="notif__ico">!</span>TOTAL CONNECT<span class="notif__hora" data-hora>ahora</span></div>
+        <strong data-notif-t>Movimiento detectado</strong>
+        <span data-notif-s>Sala · sistema armado</span>
+        <div class="notif__acc"><span>Ver cámara</span><span>Llamar a la central</span></div>
+      </div>
+      <div class="plano__pie">
+        <p class="plano__ayuda">Toca un punto para ver qué lo protege.</p>
+        <button class="btn btn--prim btn--sm" type="button" data-simular>Simular una alerta</button>
+      </div>
     </figure>
   </div>
 </section>
+
+<!-- SECTION: marcas -->
+<div class="marq" aria-label="Marcas con las que trabajamos">
+  <div class="marq__pista"><span>Honeywell</span><span>Resideo</span><span>Notifier</span><span>Hikvision</span><span>Dahua</span><span>HID</span><span>ZKTeco</span><span>IrisID</span><span>Silent Knight</span><span>Edwards</span><span>Mircom</span><span>Fire-Lite</span><span>Honeywell</span><span>Resideo</span><span>Notifier</span><span>Hikvision</span><span>Dahua</span><span>HID</span><span>ZKTeco</span><span>IrisID</span><span>Silent Knight</span><span>Edwards</span><span>Mircom</span><span>Fire-Lite</span></div>
+</div>
 
 <!-- SECTION: dolores -->
 <section class="dolores" id="dolores">
@@ -131,7 +152,7 @@
   <div class="wrap">
     <p class="kicker">Monitoreo 24/7</p>
     <h2 class="rv">Qué pasa si tu alarma suena a las 3 a.&nbsp;m.</h2>
-    <ol class="pasos">
+    <ol class="pasos" data-pasos><span class="pasos__prog" aria-hidden="true"></span>
       <li class="paso rv"><div class="paso__n">1</div><p class="paso__t">3:00</p><h3>Detecta</h3><p>Un sensor de puerta, movimiento o humo se activa y el panel envía la señal a la central.</p></li>
       <li class="paso rv"><div class="paso__n">2</div><p class="paso__t">En el momento</p><h3>Recibe</h3><p>Un agente entrenado de la central de monitoreo recibe la alerta, de día o de noche.</p></li>
       <li class="paso rv"><div class="paso__n">3</div><p class="paso__t">Te avisa</p><h3>Te avisa</h3><p>La alerta llega a tu celular por la app Total Connect, y la central se comunica contigo.</p></li>
@@ -167,10 +188,10 @@
 <section class="prueba" aria-label="Trayectoria">
   <div class="wrap">
     <div class="cifras">
-      <div class="rv"><p class="cifra__n"><span>+</span>4,000</p><p class="cifra__t">alarmas instaladas</p></div>
-      <div class="rv"><p class="cifra__n"><span>+</span>3,000</p><p class="cifra__t">cámaras instaladas</p></div>
-      <div class="rv"><p class="cifra__n"><span>+</span>200</p><p class="cifra__t">sistemas de control de acceso</p></div>
-      <div class="rv"><p class="cifra__n"><span>+</span>20</p><p class="cifra__t">años, empresa panameña</p></div>
+      <div class="rv"><p class="cifra__n"><span>+</span><b data-cuenta="4000">4,000</b></p><p class="cifra__t">alarmas instaladas</p></div>
+      <div class="rv"><p class="cifra__n"><span>+</span><b data-cuenta="3000">3,000</b></p><p class="cifra__t">cámaras instaladas</p></div>
+      <div class="rv"><p class="cifra__n"><span>+</span><b data-cuenta="200">200</b></p><p class="cifra__t">sistemas de control de acceso</p></div>
+      <div class="rv"><p class="cifra__n"><span>+</span><b data-cuenta="20">20</b></p><p class="cifra__t">años, empresa panameña</p></div>
     </div>
     <dl class="marcas">
       <dt>Marcas con las que trabajamos</dt><dd>Honeywell · Resideo · Notifier · Silent Knight · Edwards · Hikvision · Dahua · HID · ZKTeco · IrisID</dd>
@@ -232,7 +253,8 @@
           <label class="chip"><input type="checkbox" name="nec" value="control de acceso"><span>Control de acceso</span></label>
         </div>
       </fieldset>
-      <p class="armador__prev" aria-live="polite" id="armador-prev"></p>
+      <div class="reco" aria-live="polite"><p class="reco__t">Recomendado para <b data-reco-lugar>tu casa</b></p><p class="reco__d" data-reco-d></p></div>
+      <p class="armador__prev" id="armador-prev"></p>
       <a class="btn btn--prim" id="armador-btn" href="https://wa.me/50766785785?text=Hola%20Star%20Alarm%2C%20quiero%20cotizar%20un%20sistema%20de%20seguridad." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Enviar por WhatsApp</a>
     </form>
   </div>
@@ -249,7 +271,16 @@
     prev.innerHTML='<b>Tu mensaje:</b> '+txt;
     btn.href='https://wa.me/50766785785?text='+encodeURIComponent(txt);
   }
-  f.addEventListener('change',upd);upd();
+  var R={'mi casa':[['alarma','monitoreo 24/7'],'Alarma con sensores en puertas y ventanas, monitoreo 24/7 y la app en tu celular.'],
+   'mi apartamento':[['alarma','monitoreo 24/7'],'Alarma inalámbrica, sin obra, con alertas en tu celular y monitoreo 24/7.'],
+   'mi negocio':[['alarma','cámaras','monitoreo 24/7'],'Cámaras con video análisis en caja y entrada, alarma para cuando cierras y monitoreo 24/7.'],
+   'mi oficina':[['cámaras','control de acceso'],'Control de acceso con registro de asistencia y visitantes, y cámaras en accesos.'],
+   'un edificio / PH':[['cámaras','control de acceso','alarma contra incendio'],'Control de acceso para residentes y visitas, cámaras en áreas comunes y sistema contra incendio.']};
+  var recoL=f.querySelector('[data-reco-lugar]'),recoD=f.querySelector('[data-reco-d]');
+  function reco(e){var l=(f.querySelector('input[name=lugar]:checked')||{}).value;if(!R[l])return;
+    recoL.textContent=l.replace('mi ','tu ').replace('un edificio / PH','tu edificio o PH');recoD.textContent=R[l][1];
+    if(e&&e.target.name==='lugar'){f.querySelectorAll('input[name=nec]').forEach(function(i){i.checked=R[l][0].indexOf(i.value)>-1})}}
+  f.addEventListener('change',function(e){reco(e);upd()});reco();upd();
 })();
 </script>
 
@@ -304,5 +335,6 @@
 })();
 </script>
 
+<script src="/app.js" defer></script>
 </body>
 </html>
