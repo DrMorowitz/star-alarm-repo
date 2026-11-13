@@ -2,14 +2,14 @@
 <section class="cot osc" id="cotizar">
   <div class="wrap">
     <div>
-      <p class="kicker">Cotización gratis</p>
+      <p class="kicker">Cotización</p>
       <h2 class="rv">Cuéntanos qué quieres proteger.</h2>
-      <p class="lead">Elige qué quieres proteger y te abrimos WhatsApp con el mensaje listo. Te respondemos para coordinar la visita.</p>
+      <p class="lead">Elige qué quieres proteger y te abrimos WhatsApp con el mensaje listo. Te respondemos con tu cotización.</p>
       <ul class="contacto-lista">
         <li><span>WhatsApp</span><a href="{{WA}}" data-wa>6678-5785</a></li>
         <li><span>Oficina</span><a href="tel:+5072636380">263-6380</a></li>
         <li><span>Correo</span><a href="mailto:ventas@staralarmpanama.com">ventas@staralarmpanama.com</a></li>
-        <li><span>Horario</span>Lun a vie 8:00–5:00 · Sáb 8:00–12:00</li>
+        <li><span>Monitoreo</span>24/7</li>
       </ul>
     </div>
     <form class="armador rv" id="armador" onsubmit="return false">
@@ -46,7 +46,7 @@
   function upd(){
     var lugar=(f.querySelector('input[name=lugar]:checked')||{}).value||'mi casa';
     var nec=[].map.call(f.querySelectorAll('input[name=nec]:checked'),function(i){return i.value});
-    var txt='Hola Star Alarm, quiero cotizar '+(nec.length?lista(nec):'un sistema de seguridad')+' para '+lugar+'. ¿Me ayudan a coordinar la visita?';
+    var txt='Hola Star Alarm, quiero cotizar '+(nec.length?lista(nec):'un sistema de seguridad')+' para '+lugar+'. ¿Me pueden enviar una cotización?';
     prev.innerHTML='<b>Tu mensaje:</b> '+txt;
     btn.href='https://wa.me/50766785785?text='+encodeURIComponent(txt);
   }

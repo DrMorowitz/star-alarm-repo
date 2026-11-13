@@ -27,14 +27,14 @@ for page,cur in [('index','INICIO'),('servicios','SERV'),('contacto','CONT')]:
 (out/'robots.txt').write_text("# DEMO: bloqueado. Al lanzar: Allow: / y Sitemap\nUser-agent: *\nDisallow: /\n")
 (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>https://www.staralarmpanama.com/{p}</loc></url>' for p in ['','servicios','contacto'])+'</urlset>\n')
 (out/'llms.txt').write_text("""# Star Alarm
-> Empresa panameña (Star Alarm S.A.), desde 2001. Alarmas contra robo e incendio, cámaras CCTV con video analytics, monitoreo 24/7 y control de acceso para casas, negocios, PH e industria en Panamá.
+> Empresa panameña (Star Alarm S.A.) con más de 20 años. Alarmas contra robo e incendio, cámaras CCTV con video analytics, monitoreo 24/7 y control de acceso para casas, negocios, PH e industria en Panamá.
 
 ## Datos
 - Teléfono: +507 263-6380 · WhatsApp: +507 6678-5785 · ventas@staralarmpanama.com
-- Horario: lun–vie 8:00–17:00, sáb 8:00–12:00; monitoreo 24/7
+- Monitoreo y soporte 24/7
 - Trayectoria: +4,000 alarmas, +3,000 cámaras, +200 sistemas de control de acceso
-- Marcas: Honeywell/Resideo, Notifier, Silent Knight, Hikvision, Dahua, HID, ZKTeco, IrisID
-- Cotización y levantamiento gratis, sin compromiso
+- Marcas: Honeywell/Resideo, Notifier, Silent Knight, Edwards, Hikvision, Dahua, HID, ZKTeco, IrisID
+- Clientes: UPS, Grupo Melo, Panamed, Aquaviva, DDP, QLU
 
 ## Páginas
 - [Inicio](https://www.staralarmpanama.com/): qué hacemos y cómo responde el monitoreo
